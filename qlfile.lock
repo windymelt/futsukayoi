@@ -1,0 +1,23 @@
+("quicklisp" .
+ (:class qlot.source.ql:source-ql-all
+  :initargs (:project-name "quicklisp" :%version :latest)
+  :version "2017-08-30"))
+("caveman2" .
+ (:class qlot.source.github:source-github
+  :initargs (:project-name "caveman2" :repos "fukamachi/caveman" :ref nil :branch nil :tag nil)
+  :version "github-8d3a5d4cd39cdb1ea04555d71419ddc4066ae01c"
+  :repos "fukamachi/caveman"
+  :url "https://github.com/fukamachi/caveman/archive/8d3a5d4cd39cdb1ea04555d71419ddc4066ae01c.tar.gz"
+  :ref "8d3a5d4cd39cdb1ea04555d71419ddc4066ae01c"))
+("sxql" .
+ (:class qlot.source.ql:source-ql
+  :initargs (:project-name "sxql" :%version :latest)
+  :version "ql-2017-08-30"))
+("datafly" .
+ (:class qlot.source.ql:source-ql
+  :initargs (:project-name "datafly" :%version :latest)
+  :version "ql-2017-08-30"))
+("local-time" .
+ (:class qlot.source.ql:source-ql
+  :initargs (:project-name "local-time" :%version :latest)
+  :version "ql-2017-08-30"))

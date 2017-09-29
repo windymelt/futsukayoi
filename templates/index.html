@@ -1,7 +1,22 @@
 {% extends "layouts/default.html" %}
-{% block title %}Welcome to Caveman2{% endblock %}
+{% block title %}Futsukayoi{% endblock %}
 {% block content %}
-<div id="main">
-  Welcome to <a href="http://8arrow.org/caveman/">Caveman2</a>!
+<form action="/futsukayoi" method="post">
+  <input type="hidden" name="is-futsukayoi" value="1">
+  <button type="submit" class="btn btn-danger btn-lg btn-block">二日酔いになった</button>
+</form>
+<form action="/futsukayoi" method="post">
+  <button type="submit" class="btn btn-success btn-lg btn-block">二日酔いにならなかった</button>
+</form>
+<hr/>
+<div class="progress">
+  <div class="progress-bar" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
 </div>
+<hr/>
+<button type="button" class="btn btn-warning btn-lg btn-block">ビールを飲んだ</button>
+<button type="button" class="btn btn-warning btn-lg btn-block">日本酒を飲んだ</button>
+<button type="button" class="btn btn-warning btn-lg btn-block">ワインを飲んだ</button>
+<button type="button" class="btn btn-warning btn-lg btn-block">ハイボールを飲んだ</button>
+<button type="button" class="btn btn-success btn-lg btn-block">ウーロン茶を飲んだ</button>
+<button type="button" class="btn btn-success btn-lg btn-block">水を飲んだ</button>
 {% endblock %}

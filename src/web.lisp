@@ -25,7 +25,9 @@
 
 (defroute "/" ()
   (render #P"index.html"))
-
+(defroute ("/futsukayoi" :method :POST) (&key |is-futsukayoi|)
+  (save-futsukayoi-result (or |is-futsukayoi| 0))
+  (render #P"index.html"))
 ;;
 ;; Error pages
 
@@ -33,3 +35,9 @@
   (declare (ignore app))
   (merge-pathnames #P"_errors/404.html"
                    *template-directory*))
+
+(defun save-futsukayoi-result (is-futsukayoi)
+  (let ((timestamp (local-time:now)))
+    (with-connection (db)
+      (execute (insert-into :futsukayoi (set= :dead is-futsukayoi :dt timestamp)
+                 (on-duplicate-key-update :dead is-futsukayoi))))))
