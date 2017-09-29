@@ -25,8 +25,13 @@
 
 (defroute "/" ()
   (render #P"index.html"))
+
 (defroute ("/futsukayoi" :method :POST) (&key |is-futsukayoi|)
   (save-futsukayoi-result (or |is-futsukayoi| 0))
+  (render #P"index.html"))
+
+(defroute ("/drink" :method :POST) (&key |drink-name|)
+  (save-drinking-result |drink-name|)
   (render #P"index.html"))
 ;;
 ;; Error pages
@@ -37,7 +42,12 @@
                    *template-directory*))
 
 (defun save-futsukayoi-result (is-futsukayoi)
-  (let ((timestamp (local-time:now)))
+  (let ((timestamp (local-time:timestamp- (local-time:now) 1 :day)))
     (with-connection (db)
       (execute (insert-into :futsukayoi (set= :dead is-futsukayoi :dt timestamp)
                  (on-duplicate-key-update :dead is-futsukayoi))))))
+
+(defun save-drinking-result (drink)
+  (let ((timestamp (local-time:now)))
+    (with-connection (db)
+      (execute (insert-into :drinking (set= :drink drink :dt timestamp))))))

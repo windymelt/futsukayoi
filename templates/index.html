@@ -13,10 +13,28 @@
   <div class="progress-bar" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
 </div>
 <hr/>
-<button type="button" class="btn btn-warning btn-lg btn-block">ビールを飲んだ</button>
-<button type="button" class="btn btn-warning btn-lg btn-block">日本酒を飲んだ</button>
-<button type="button" class="btn btn-warning btn-lg btn-block">ワインを飲んだ</button>
-<button type="button" class="btn btn-warning btn-lg btn-block">ハイボールを飲んだ</button>
-<button type="button" class="btn btn-success btn-lg btn-block">ウーロン茶を飲んだ</button>
-<button type="button" class="btn btn-success btn-lg btn-block">水を飲んだ</button>
+<form action="/drink" method="post">
+  <input type="hidden" name="drink-name" value="beer">
+  <button type="submit" class="btn btn-warning btn-lg btn-block">ビールを飲んだ</button>
+</form>
+<form action="/drink" method="post">
+  <input type="hidden" name="drink-name" value="sake">
+  <button type="submit" class="btn btn-warning btn-lg btn-block">日本酒を飲んだ</button>
+</form>
+<form action="/drink" method="post">
+  <input type="hidden" name="drink-name" value="wine">
+  <button type="submit" class="btn btn-warning btn-lg btn-block">ワインを飲んだ</button>
+</form>
+<form action="/drink" method="post">
+  <input type="hidden" name="drink-name" value="hiball">
+  <button type="submit" class="btn btn-warning btn-lg btn-block">ハイボールを飲んだ</button>
+</form>
+<form action="/drink" method="post">
+  <input type="hidden" name="drink-name" value="oolong">
+  <button type="submit" class="btn btn-success btn-lg btn-block">ウーロン茶を飲んだ</button>
+</form>
+<form action="/drink" method="post">
+  <input type="hidden" name="drink-name" value="water">
+  <button type="submit" class="btn btn-success btn-lg btn-block">水を飲んだ</button>
+</form>
 {% endblock %}
